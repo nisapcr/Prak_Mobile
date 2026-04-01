@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">Marvel Apps</string>
+    <string name="judul">Halaman Kirim</string>
+    <string name="anakjudul">Kode berhasil dikirim!</string>
 </resources>

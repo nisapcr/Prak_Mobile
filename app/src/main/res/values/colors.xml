@@ -2,4 +2,7 @@
 <resources>
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
+    <color name="bg">#EFCBF2</color>
+    <color name="tombol">#000000</color>
+    <color name="bgbaru">#BA7FD3</color>
 </resources>
