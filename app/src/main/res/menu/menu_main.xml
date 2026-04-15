@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <!-- Menu biasa -->
+    <item
+        android:id="@+id/menu_about"
+        android:title="About" />
+
+    <item android:title="Settings">
+        <menu>
+            <group android:checkableBehavior="all">
+
+                <item
+                    android:id="@+id/menu_dark"
+                    android:title="Dark Mode"
+                    android:checkable="true"/>
+
+                <item
+                    android:id="@+id/menu_notif"
+                    android:title="Notifikasi"
+                    android:checkable="true"/>
+
+            </group>
+        </menu>
+    </item>
+
+</menu>
