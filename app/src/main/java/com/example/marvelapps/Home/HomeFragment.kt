@@ -66,7 +66,7 @@ class HomeFragment : Fragment() {
             startActivity(intent)
         }
 
-        // 🔵 KE PERTEMUAN 7
+        // 🔵 KE PERTEMUAN 77
         binding.btnToSeventh.setOnClickListener {
             val intent = Intent(requireContext(), SeventhActivity::class.java)
             startActivity(intent)
