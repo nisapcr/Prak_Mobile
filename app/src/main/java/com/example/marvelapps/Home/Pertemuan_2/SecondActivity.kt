@@ -1,4 +1,4 @@
-package com.example.marvelapps.Pertemuan_2
+package com.example.marvelapps.Home.Pertemuan_2
 
 import android.os.Bundle
 import android.util.Log
