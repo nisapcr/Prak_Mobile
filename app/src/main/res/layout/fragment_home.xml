@@ -7,21 +7,25 @@
     android:background="#F5F7FA"
     tools:context=".Home.HomeFragment">
 
+    <!-- 🔷 BACKGROUND HEADER WAVE -->
+    <View
+        android:id="@+id/background_header"
+        android:layout_width="0dp"
+        android:layout_height="220dp"
+        android:background="@drawable/bg_header_wave"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
     <androidx.appcompat.widget.Toolbar
         android:id="@+id/toolbar"
         android:layout_width="match_parent"
         android:layout_height="?attr/actionBarSize"
-        android:background="?attr/colorPrimary"
+        android:background="@android:color/transparent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_scrollFlags="scroll|enterAlways"
         app:titleTextColor="@android:color/white" />
-    <!-- 🔷 TITLE -->
-
-    <!-- 🔷 SUBTITLE -->
-
-    <!-- 🔷 CARD MENU -->
 
     <TextView
         android:id="@+id/tvTitle"
@@ -29,7 +33,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="76dp"
         android:text="Nisa PCR 👋"
-        android:textColor="#2D3436"
+        android:textColor="@android:color/black"
         android:textSize="28sp"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
@@ -40,12 +44,11 @@
         android:id="@+id/tvSubtitle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="28dp"
+        android:layout_marginTop="8dp"
         android:text="Pilih menu pertemuan"
-        android:textColor="#636E72"
+        android:textColor="#E0E0E0"
         android:textSize="14sp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.456"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/tvTitle" />
 
@@ -126,6 +129,18 @@
                     android:layout_marginTop="12dp"
                     android:backgroundTint="#0984E3"
                     android:text="🛠️ Pertemuan 7"
+                    android:textAllCaps="false"
+                    android:textColor="@android:color/white"
+                    app:cornerRadius="14dp" />
+
+                <!-- BUTTON PERTEMUAN 9 -->
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/btnToNinth"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="12dp"
+                    android:backgroundTint="#2D3436"
+                    android:text="📱 Pertemuan 9"
                     android:textAllCaps="false"
                     android:textColor="@android:color/white"
                     app:cornerRadius="14dp" />

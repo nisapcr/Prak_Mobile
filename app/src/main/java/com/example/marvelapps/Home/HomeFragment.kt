@@ -15,6 +15,7 @@ import com.example.marvelapps.Home.Pertemuan_3.ThirdActivity
 import com.example.marvelapps.Home.Pertemuan_4.FourthActivity
 import com.example.marvelapps.Home.Pertemuan_5.FifthActivity
 import com.example.marvelapps.Home.pertemuan_7.SeventhActivity
+import com.example.marvelapps.Home.pertemuan_9.NinthActivity
 import com.example.marvelapps.databinding.FragmentHomeBinding
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
 
@@ -32,12 +33,13 @@ class HomeFragment : Fragment() {
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+        
         val sharedPref = requireContext().getSharedPreferences("user_pref", MODE_PRIVATE)
         (requireActivity() as AppCompatActivity).setSupportActionBar(binding.toolbar)
         (requireActivity() as AppCompatActivity).supportActionBar?.apply {
             title = "Home"
         }
-
 
         // 🔵 KE PERTEMUAN 2
         binding.btnToSecond.setOnClickListener {
@@ -66,9 +68,15 @@ class HomeFragment : Fragment() {
             startActivity(intent)
         }
 
-        // 🔵 KE PERTEMUAN 77
+        // 🔵 KE PERTEMUAN 7
         binding.btnToSeventh.setOnClickListener {
             val intent = Intent(requireContext(), SeventhActivity::class.java)
+            startActivity(intent)
+        }
+
+        // 🔵 KE PERTEMUAN 9
+        binding.btnToNinth.setOnClickListener {
+            val intent = Intent(requireContext(), NinthActivity::class.java)
             startActivity(intent)
         }
 
