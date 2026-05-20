@@ -16,6 +16,7 @@ import com.example.marvelapps.Home.Pertemuan_4.FourthActivity
 import com.example.marvelapps.Home.Pertemuan_5.FifthActivity
 import com.example.marvelapps.Home.pertemuan_7.SeventhActivity
 import com.example.marvelapps.Home.pertemuan_9.NinthActivity
+import com.example.marvelapps.Home.pertemuan_10.TenthActivity
 import com.example.marvelapps.databinding.FragmentHomeBinding
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
 
@@ -77,6 +78,12 @@ class HomeFragment : Fragment() {
         // 🔵 KE PERTEMUAN 9
         binding.btnToNinth.setOnClickListener {
             val intent = Intent(requireContext(), NinthActivity::class.java)
+            startActivity(intent)
+        }
+
+        // 🔵 KE PERTEMUAN 10
+        binding.btnToTenth.setOnClickListener {
+            val intent = Intent(requireContext(), TenthActivity::class.java)
             startActivity(intent)
         }
 

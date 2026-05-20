@@ -145,6 +145,18 @@
                     android:textColor="@android:color/white"
                     app:cornerRadius="14dp" />
 
+                <!-- BUTTON PERTEMUAN 10 -->
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/btnToTenth"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="12dp"
+                    android:backgroundTint="#FF5722"
+                    android:text="📑 Pertemuan 10"
+                    android:textAllCaps="false"
+                    android:textColor="@android:color/white"
+                    app:cornerRadius="14dp" />
+
             </LinearLayout>
         </ScrollView>
 
