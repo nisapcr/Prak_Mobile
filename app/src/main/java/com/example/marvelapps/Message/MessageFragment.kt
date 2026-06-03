@@ -1,12 +1,13 @@
 package com.example.marvelapps.Message
 
+import android.content.Intent
 import android.os.Bundle
+import android.view.*
 import androidx.fragment.app.Fragment
-import android.view.LayoutInflater
-import android.view.View
-import android.view.ViewGroup
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
+import com.example.marvelapps.Message.tutorial.TutorialMessageActivity
+import com.example.marvelapps.R
 import com.example.marvelapps.databinding.FragmentMessageBinding
 
 class MessageFragment : Fragment() {
@@ -14,7 +15,6 @@ class MessageFragment : Fragment() {
     private var _binding: FragmentMessageBinding? = null
     private val binding get() = _binding!!
 
-    // 1. Definisikan list data message (Model)
     private val messageList = listOf(
         MessageModel("Alya", "Halo! Apa kabar?", "https://p16-capcut-va.ibyteimg.com/tos-alis-i-bv9jr6pwzx-us/005e0467776d499499806a64098935c1~tplv-photomode-zoom:600:600.webp"),
         MessageModel("Budi", "Sudah makan?", "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS_u9Z1f-X8W9L5mC_V8N3jO_C-wS9_vW09-A&s"),
@@ -39,20 +39,30 @@ class MessageFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        // 2. Setup Toolbar
         (requireActivity() as AppCompatActivity).setSupportActionBar(binding.toolbar)
         (requireActivity() as AppCompatActivity).supportActionBar?.apply {
-            title = "Messages"
+            title = "Message"
         }
+        
+        // Aktifkan Option Menu di Fragment
+        setHasOptionsMenu(true)
 
-        // 3. Inisialisasi Adapter dan hubungkan dengan ListView
         val adapter = MessageAdapter(requireContext(), messageList)
         binding.listMessageItems.adapter = adapter
+    }
 
-        // 4. Tambahkan aksi saat item diklik
-        binding.listMessageItems.setOnItemClickListener { _, _, position, _ ->
-            val selectedItem = messageList[position]
-            Toast.makeText(requireContext(), "Membuka chat: ${selectedItem.senderName}", Toast.LENGTH_SHORT).show()
+    override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
+        inflater.inflate(R.menu.message_toolbar_menu, menu)
+    }
+
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        return when (item.itemId) {
+            R.id.action_tutorial -> {
+                val intent = Intent(requireContext(), TutorialMessageActivity::class.java)
+                startActivity(intent)
+                true
+            }
+            else -> super.onOptionsItemSelected(item)
         }
     }
 
