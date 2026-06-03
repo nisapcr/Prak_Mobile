@@ -4,12 +4,16 @@ import android.content.Context.MODE_PRIVATE
 import android.content.Intent
 import android.os.Bundle
 import android.util.Log
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
+import androidx.fragment.app.Fragment
+import androidx.lifecycle.lifecycleScope
+import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.marvelapps.AuthActivity
+import com.example.marvelapps.Data.api.PhotoApiClient
 import com.example.marvelapps.Home.Pertemuan_2.SecondActivity
 import com.example.marvelapps.Home.Pertemuan_3.ThirdActivity
 import com.example.marvelapps.Home.Pertemuan_4.FourthActivity
@@ -17,8 +21,10 @@ import com.example.marvelapps.Home.Pertemuan_5.FifthActivity
 import com.example.marvelapps.Home.pertemuan_7.SeventhActivity
 import com.example.marvelapps.Home.pertemuan_9.NinthActivity
 import com.example.marvelapps.Home.pertemuan_10.TenthActivity
+import com.example.marvelapps.Home.photo.PhotoAdapter
 import com.example.marvelapps.databinding.FragmentHomeBinding
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
+import kotlinx.coroutines.launch
 
 class HomeFragment : Fragment() {
 
@@ -41,6 +47,9 @@ class HomeFragment : Fragment() {
         (requireActivity() as AppCompatActivity).supportActionBar?.apply {
             title = "Home"
         }
+
+        // 🔵 LOAD PHOTO DARI API
+        loadPhoto()
 
         // 🔵 KE PERTEMUAN 2
         binding.btnToSecond.setOnClickListener {
@@ -107,6 +116,29 @@ class HomeFragment : Fragment() {
                     dialog.dismiss()
                 }
                 .show()
+        }
+    }
+
+    private fun loadPhoto() {
+        lifecycleScope.launch {
+            try {
+                // Memanggil API melalui Retrofit
+                val photos = PhotoApiClient.apiService.getPhotos()
+                
+                // Menyiapkan Adapter
+                val adapter = PhotoAdapter(photos)
+                binding.rvGallery.adapter = adapter
+                
+                // Menentukan LayoutManager (Vertical)
+                binding.rvGallery.layoutManager = LinearLayoutManager(requireContext())
+                
+                // Menonaktifkan nested scrolling pada RecyclerView agar scroll ditangani oleh NestedScrollView
+                binding.rvGallery.isNestedScrollingEnabled = false
+                
+            } catch (e: Exception) {
+                Log.e("API_ERROR", "Gagal memuat gambar: ${e.message}")
+                Toast.makeText(requireContext(), "Gagal memuat gambar", Toast.LENGTH_SHORT).show()
+            }
         }
     }
 
