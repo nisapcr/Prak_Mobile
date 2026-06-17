@@ -21,6 +21,7 @@ import com.example.marvelapps.Home.Pertemuan_5.FifthActivity
 import com.example.marvelapps.Home.pertemuan_7.SeventhActivity
 import com.example.marvelapps.Home.pertemuan_9.NinthActivity
 import com.example.marvelapps.Home.pertemuan_10.TenthActivity
+import com.example.marvelapps.Home.pertemuan_13.ThirteenthActivity
 import com.example.marvelapps.Home.photo.PhotoAdapter
 import com.example.marvelapps.databinding.FragmentHomeBinding
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
@@ -93,6 +94,12 @@ class HomeFragment : Fragment() {
         // 🔵 KE PERTEMUAN 10
         binding.btnToTenth.setOnClickListener {
             val intent = Intent(requireContext(), TenthActivity::class.java)
+            startActivity(intent)
+        }
+
+        // 🔵 KE PERTEMUAN 13
+        binding.btnToThirteenth.setOnClickListener {
+            val intent = Intent(requireContext(), ThirteenthActivity::class.java)
             startActivity(intent)
         }
 

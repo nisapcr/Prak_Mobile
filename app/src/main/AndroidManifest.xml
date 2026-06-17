@@ -4,6 +4,11 @@
     <!-- 🔴 WAJIB BIAR WEBVIEW DAN GAMBAR JALAN -->
     <uses-permission android:name="android.permission.INTERNET" />
 
+    <uses-feature android:name="android.hardware.camera" android:required="false" />
+    <uses-permission android:name="android.permission.CAMERA" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"
+        android:maxSdkVersion="28" /> <!-- Hanya untuk Android 9 ke bawah -->
+
     <application
         android:allowBackup="true"
         android:dataExtractionRules="@xml/data_extraction_rules"
@@ -14,9 +19,23 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.MarvelApps">
 
+        <provider
+            android:name="androidx.core.content.FileProvider"
+            android:authorities="${applicationId}.fileprovider"
+            android:exported="false"
+            android:grantUriPermissions="true">
+            <meta-data
+                android:name="android.support.FILE_PROVIDER_PATHS"
+                android:resource="@xml/file_paths" />
+        </provider>
+
         <!-- REGISTER TUTORIAL ACTIVITY -->
         <activity
             android:name=".Message.tutorial.TutorialMessageActivity"
+            android:exported="false" />
+
+        <activity
+            android:name=".Home.pertemuan_13.ThirteenthActivity"
             android:exported="false" />
 
         <activity

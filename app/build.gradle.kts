@@ -35,6 +35,17 @@ android {
 }
 
 dependencies {
+    // CameraX
+    implementation("androidx.camera:camera-camera2:1.3.3")
+    implementation("androidx.camera:camera-lifecycle:1.3.3")
+    implementation("androidx.camera:camera-view:1.3.3")
+    
+    // ML Kit for QR code
+    implementation("com.google.mlkit:barcode-scanning:17.2.0")
+
+    // ZXing for QR Code
+    implementation("com.google.zxing:core:3.5.2")
+
     // Retrofit
     implementation("com.squareup.retrofit2:retrofit:2.11.0")
     implementation("com.squareup.retrofit2:converter-gson:2.11.0")

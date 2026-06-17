@@ -144,6 +144,16 @@
                         android:textAllCaps="false"
                         app:cornerRadius="14dp" />
 
+                    <com.google.android.material.button.MaterialButton
+                        android:id="@+id/btnToThirteenth"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="12dp"
+                        android:backgroundTint="#8E44AD"
+                        android:text="📸 Pertemuan 13"
+                        android:textAllCaps="false"
+                        app:cornerRadius="14dp" />
+
                 </LinearLayout>
             </com.google.android.material.card.MaterialCardView>
 
